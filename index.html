@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <div class="game-card">
+
+            <div class="header">
+                <span class="game-icon">🎯</span>
+                <h1>Guess The Number</h1>
+                <p>Can you guess the secret number?</p>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="difficulty">
+                <button class="difficulty-btn active" data-max="50">Easy</button>
+                <button class="difficulty-btn" data-max="100">Medium</button>
+                <button class="difficulty-btn" data-max="500">Hard</button>
+            </div>
+
+            <div class="range-info">
+                Guess a number between <strong>1</strong> and
+                <strong id="maxNumber">50</strong>
+            </div>
+
+            <!-- Game Stats -->
+            <div class="stats">
+                <div class="stat-box">
+                    <span>🏆</span>
+                    <small>Score</small>
+                    <strong id="score">100</strong>
+                </div>
+
+                <div class="stat-box">
+                    <span>🎲</span>
+                    <small>Attempts</small>
+                    <strong id="attempts">0</strong>
+                </div>
+
+                <div class="stat-box">
+                    <span>💡</span>
+                    <small>Hints</small>
+                    <strong id="hints">3</strong>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <div id="message" class="message">
+                Make your first guess! 🚀
+            </div>
+
+            <!-- Input -->
+            <div class="input-section">
+                <input
+                    type="number"
+                    id="guessInput"
+                    placeholder="Enter your guess"
+                    min="1"
+                >
+
+                <button id="guessBtn" class="guess-btn">
+                    Guess 🎯
+                </button>
+            </div>
+
+            <!-- Hint -->
+            <button id="hintBtn" class="hint-btn">
+                💡 Get a Hint
+            </button>
+
+            <!-- Previous guesses -->
+            <div class="previous-section">
+                <h3>Previous Guesses</h3>
+                <div id="previousGuesses" class="previous-guesses">
+                    <span class="empty">No guesses yet</span>
+                </div>
+            </div>
+
+            <!-- Restart -->
+            <button id="restartBtn" class="restart-btn">
+                🔄 New Game
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
