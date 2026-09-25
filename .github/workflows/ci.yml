@@ -1,0 +1,33 @@
+name: Guess Number Game CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t guess-number-game .
+
+      - name: Run Docker container
+        run: |
+          docker run -d -p 8080:80 --name guess-game guess-number-game
+
+      - name: Test application
+        run: |
+          sleep 3
+          curl -f http://localhost:8080
+
+      - name: Stop container
+        run: docker stop guess-game
